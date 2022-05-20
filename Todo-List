@@ -1,0 +1,32 @@
+let askUser = prompt("What would you like to do?");
+const todos = ["Morning Walk", "Meditation"];
+while (askUser !== "quit") {
+    if (askUser === "list") {
+
+        for (let i = 0; i < todos.length; i++) {
+            console.log(`${i}: ${todos[i]}`);
+        }
+    }
+    else if (askUser === "new") {
+        newTodo = prompt("enter your new to do");
+        todos.push(newTodo);
+        console.log(`${newTodo} added to the list`);
+    }
+
+    else if (askUser === "remove") {
+        index = parseInt(prompt("Enter an index to delete"));
+        if (!Number.isNaN(index)) {
+            const deleted = todos.splice(index, 1);
+            console.log(`${deleted} removed from the list`);
+        }
+        else {
+            console.log("Unknown index! Did not delete anything")
+        }
+
+    }
+    askUser = prompt("What would you like to do?")
+
+
+
+}
+console.log("You quit the app")
